@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2020 at 01:31 PM
+-- Generation Time: Mar 24, 2020 at 07:52 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -46880,78 +46880,83 @@ ALTER TABLE `store`
 -- Constraints for table `address`
 --
 ALTER TABLE `address`
-  ADD CONSTRAINT `address_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `city` (`city_id`);
+  ADD CONSTRAINT `address_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `city` (`city_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `city`
+-- Constraints for table `category`
 --
-ALTER TABLE `city`
-  ADD CONSTRAINT `city_ibfk_1` FOREIGN KEY (`country_id`) REFERENCES `country` (`country_id`);
+ALTER TABLE `category`
+  ADD CONSTRAINT `category_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `film_category` (`category_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `country`
+--
+ALTER TABLE `country`
+  ADD CONSTRAINT `country_ibfk_1` FOREIGN KEY (`country_id`) REFERENCES `city` (`country_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `customer`
 --
 ALTER TABLE `customer`
-  ADD CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`store_id`) REFERENCES `store` (`store_id`),
-  ADD CONSTRAINT `customer_ibfk_2` FOREIGN KEY (`address_id`) REFERENCES `address` (`address_id`);
+  ADD CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`address_id`) REFERENCES `address` (`address_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `customer_ibfk_2` FOREIGN KEY (`store_id`) REFERENCES `store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `customer_ibfk_3` FOREIGN KEY (`customer_id`) REFERENCES `rental` (`customer_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `film`
 --
 ALTER TABLE `film`
-  ADD CONSTRAINT `film_ibfk_1` FOREIGN KEY (`language_id`) REFERENCES `language` (`language_id`),
-  ADD CONSTRAINT `film_ibfk_2` FOREIGN KEY (`original_language_id`) REFERENCES `language` (`language_id`);
+  ADD CONSTRAINT `film_ibfk_1` FOREIGN KEY (`language_id`) REFERENCES `language` (`language_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `film_ibfk_2` FOREIGN KEY (`original_language_id`) REFERENCES `language` (`language_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `film_actor`
 --
 ALTER TABLE `film_actor`
-  ADD CONSTRAINT `film_actor_ibfk_1` FOREIGN KEY (`film_id`) REFERENCES `film` (`film_id`),
-  ADD CONSTRAINT `film_actor_ibfk_2` FOREIGN KEY (`actor_id`) REFERENCES `actor` (`actor_id`);
+  ADD CONSTRAINT `film_actor_ibfk_1` FOREIGN KEY (`film_id`) REFERENCES `film` (`film_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `film_actor_ibfk_2` FOREIGN KEY (`actor_id`) REFERENCES `actor` (`actor_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `film_category`
 --
 ALTER TABLE `film_category`
-  ADD CONSTRAINT `film_category_ibfk_1` FOREIGN KEY (`film_id`) REFERENCES `film` (`film_id`),
-  ADD CONSTRAINT `film_category_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`);
+  ADD CONSTRAINT `film_category_ibfk_1` FOREIGN KEY (`film_id`) REFERENCES `film` (`film_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `inventory`
 --
 ALTER TABLE `inventory`
-  ADD CONSTRAINT `inventory_ibfk_1` FOREIGN KEY (`film_id`) REFERENCES `film` (`film_id`),
-  ADD CONSTRAINT `inventory_ibfk_2` FOREIGN KEY (`store_id`) REFERENCES `store` (`store_id`);
+  ADD CONSTRAINT `inventory_ibfk_1` FOREIGN KEY (`film_id`) REFERENCES `film` (`film_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `inventory_ibfk_2` FOREIGN KEY (`store_id`) REFERENCES `store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `payment`
 --
 ALTER TABLE `payment`
-  ADD CONSTRAINT `payment_ibfk_2` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`staff_id`),
-  ADD CONSTRAINT `payment_ibfk_3` FOREIGN KEY (`rental_id`) REFERENCES `rental` (`rental_id`),
-  ADD CONSTRAINT `payment_ibfk_4` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`);
+  ADD CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`staff_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `payment_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `rental`
 --
 ALTER TABLE `rental`
-  ADD CONSTRAINT `rental_ibfk_1` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`inventory_id`),
-  ADD CONSTRAINT `rental_ibfk_3` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`staff_id`),
-  ADD CONSTRAINT `rental_ibfk_4` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`);
+  ADD CONSTRAINT `rental_ibfk_1` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`staff_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `rental_ibfk_2` FOREIGN KEY (`rental_id`) REFERENCES `payment` (`rental_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `rental_ibfk_3` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`inventory_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `staff`
 --
 ALTER TABLE `staff`
-  ADD CONSTRAINT `staff_ibfk_2` FOREIGN KEY (`address_id`) REFERENCES `address` (`address_id`);
+  ADD CONSTRAINT `staff_ibfk_1` FOREIGN KEY (`address_id`) REFERENCES `address` (`address_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `staff_ibfk_2` FOREIGN KEY (`store_id`) REFERENCES `store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `store`
 --
 ALTER TABLE `store`
-  ADD CONSTRAINT `store_ibfk_1` FOREIGN KEY (`store_id`) REFERENCES `staff` (`store_id`),
-  ADD CONSTRAINT `store_ibfk_2` FOREIGN KEY (`address_id`) REFERENCES `address` (`address_id`),
-  ADD CONSTRAINT `store_ibfk_3` FOREIGN KEY (`manager_staff_id`) REFERENCES `staff` (`staff_id`);
+  ADD CONSTRAINT `store_ibfk_1` FOREIGN KEY (`manager_staff_id`) REFERENCES `staff` (`staff_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `store_ibfk_2` FOREIGN KEY (`address_id`) REFERENCES `address` (`address_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
