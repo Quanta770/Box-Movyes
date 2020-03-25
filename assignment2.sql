@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2020 at 06:07 AM
+-- Generation Time: Mar 25, 2020 at 11:02 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -14431,7 +14431,8 @@ INSERT INTO `language` (`language_id`, `name`, `last_update`) VALUES
 (3, 'Japanese', '2006-02-14 21:02:00'),
 (4, 'Mandarin', '2006-02-14 21:02:00'),
 (5, 'French', '2006-02-14 21:02:00'),
-(6, 'German', '2006-02-14 21:02:00');
+(6, 'German', '2006-02-14 21:02:00'),
+(7, 'testing', '2020-03-25 09:57:53');
 
 -- --------------------------------------------------------
 
@@ -46798,7 +46799,7 @@ ALTER TABLE `store`
 -- AUTO_INCREMENT for table `actor`
 --
 ALTER TABLE `actor`
-  MODIFY `actor_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201;
+  MODIFY `actor_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202;
 
 --
 -- AUTO_INCREMENT for table `address`
@@ -46810,7 +46811,7 @@ ALTER TABLE `address`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `category_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `category_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `city`
@@ -46834,7 +46835,7 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT for table `film`
 --
 ALTER TABLE `film`
-  MODIFY `film_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
+  MODIFY `film_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1002;
 
 --
 -- AUTO_INCREMENT for table `inventory`
@@ -46846,7 +46847,7 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT for table `language`
 --
 ALTER TABLE `language`
-  MODIFY `language_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `language_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `payment`
@@ -46883,12 +46884,6 @@ ALTER TABLE `address`
   ADD CONSTRAINT `address_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `city` (`city_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `category`
---
-ALTER TABLE `category`
-  ADD CONSTRAINT `category_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `film_category` (`category_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `country`
 --
 ALTER TABLE `country`
@@ -46919,7 +46914,8 @@ ALTER TABLE `film_actor`
 -- Constraints for table `film_category`
 --
 ALTER TABLE `film_category`
-  ADD CONSTRAINT `film_category_ibfk_1` FOREIGN KEY (`film_id`) REFERENCES `film` (`film_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `film_category_ibfk_1` FOREIGN KEY (`film_id`) REFERENCES `film` (`film_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `film_category_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `inventory`
