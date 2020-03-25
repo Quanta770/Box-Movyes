@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2020 at 07:52 AM
+-- Generation Time: Mar 25, 2020 at 06:07 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `delete`
+-- Database: `assignment2`
 --
 
 -- --------------------------------------------------------
@@ -46899,8 +46899,7 @@ ALTER TABLE `country`
 --
 ALTER TABLE `customer`
   ADD CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`address_id`) REFERENCES `address` (`address_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `customer_ibfk_2` FOREIGN KEY (`store_id`) REFERENCES `store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `customer_ibfk_3` FOREIGN KEY (`customer_id`) REFERENCES `rental` (`customer_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `customer_ibfk_2` FOREIGN KEY (`store_id`) REFERENCES `store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `film`
@@ -46942,7 +46941,8 @@ ALTER TABLE `payment`
 ALTER TABLE `rental`
   ADD CONSTRAINT `rental_ibfk_1` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`staff_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `rental_ibfk_2` FOREIGN KEY (`rental_id`) REFERENCES `payment` (`rental_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `rental_ibfk_3` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`inventory_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `rental_ibfk_3` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`inventory_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `rental_ibfk_4` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `staff`
