@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2020 at 11:02 AM
+-- Generation Time: Mar 26, 2020 at 09:01 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -267,7 +267,7 @@ INSERT INTO `address` (`address_id`, `address`, `address2`, `district`, `city_id
 (2, '28 MySQL Boulevard', NULL, 'QLD', 576, NULL, NULL, '2014-09-25 14:30:00'),
 (3, '23 Workhaven Lane', NULL, 'Alberta', 300, NULL, '14033335568', '2014-09-25 14:30:00'),
 (4, '1411 Lillydale Drive', NULL, 'QLD', 576, NULL, '6172235589', '2014-09-25 14:30:00'),
-(5, '1913 Hanoi Way', NULL, 'Nagasaki', 463, '35200', '28303384290', '2014-09-25 14:31:00'),
+(5, '1913 Hanoi Way', '', 'Nagasaki', 463, '35200', '28303384290', '2014-09-25 14:31:00'),
 (6, '1121 Loja Avenue', NULL, 'California', 449, '17886', '8.39E+11', '2014-09-25 14:34:00'),
 (7, '692 Joliet Street', NULL, 'Attika', 38, '83579', '4.48E+11', '2014-09-25 14:31:00'),
 (8, '1566 Inegl Manor', NULL, 'Mandalay', 349, '53561', '7.06E+11', '2014-09-25 14:32:00'),
@@ -30542,7 +30542,7 @@ CREATE TABLE `rental` (
   `customer_id` int(5) NOT NULL,
   `return_date` datetime DEFAULT NULL,
   `staff_id` int(3) NOT NULL,
-  `item_received` int(1) NOT NULL,
+  `status_id` int(2) NOT NULL,
   `last_update` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -30550,7 +30550,7 @@ CREATE TABLE `rental` (
 -- Dumping data for table `rental`
 --
 
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (1, '2005-05-24 22:53:00', 367, 130, '2005-05-26 22:04:00', 1, 1, '2006-02-15 13:30:00'),
 (2, '2005-05-24 22:54:00', 1525, 459, '2005-05-28 19:40:00', 1, 1, '2006-02-15 13:30:00'),
 (3, '2005-05-24 23:03:00', 1711, 408, '2005-06-01 22:12:00', 1, 1, '2006-02-15 13:30:00'),
@@ -31102,7 +31102,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (550, '2005-05-28 07:39:00', 3632, 432, '2005-06-06 12:20:00', 2, 1, '2006-02-15 13:30:00'),
 (551, '2005-05-28 07:44:00', 3119, 315, '2005-06-02 12:55:00', 2, 1, '2006-02-15 13:30:00'),
 (552, '2005-05-28 07:53:00', 23, 106, '2005-06-04 12:45:00', 2, 1, '2006-02-15 13:30:00');
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (553, '2005-05-28 08:14:00', 1349, 176, '2005-06-02 03:01:00', 2, 1, '2006-02-15 13:30:00'),
 (554, '2005-05-28 08:23:00', 1951, 376, '2005-05-31 03:29:00', 2, 1, '2006-02-15 13:30:00'),
 (555, '2005-05-28 08:31:00', 4397, 55, '2005-05-30 07:34:00', 2, 1, '2006-02-15 13:30:00'),
@@ -31652,7 +31652,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (1099, '2005-05-31 13:54:00', 924, 269, '2005-06-05 13:04:00', 2, 1, '2006-02-15 13:30:00'),
 (1100, '2005-05-31 14:03:00', 316, 497, '2005-06-06 16:08:00', 1, 1, '2006-02-15 13:30:00'),
 (1101, '2005-05-31 14:13:00', 1174, 260, '2005-06-07 15:49:00', 1, 1, '2006-02-15 13:30:00');
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (1102, '2005-05-31 14:20:00', 2052, 115, '2005-06-04 17:38:00', 2, 1, '2006-02-15 13:30:00'),
 (1103, '2005-05-31 14:24:00', 3154, 353, '2005-06-09 10:27:00', 1, 1, '2006-02-15 13:30:00'),
 (1104, '2005-05-31 14:30:00', 1619, 466, '2005-06-05 12:07:00', 1, 1, '2006-02-15 13:30:00'),
@@ -32197,7 +32197,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (1643, '2005-06-16 08:55:00', 1352, 484, '2005-06-21 05:36:00', 2, 1, '2006-02-15 13:30:00'),
 (1644, '2005-06-16 08:58:00', 749, 596, '2005-06-21 06:47:00', 1, 1, '2006-02-15 13:30:00'),
 (1645, '2005-06-16 09:10:00', 4434, 234, '2005-06-23 04:36:00', 2, 1, '2006-02-15 13:30:00');
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (1646, '2005-06-16 09:12:00', 4037, 131, '2005-06-24 08:03:00', 2, 1, '2006-02-15 13:30:00'),
 (1647, '2005-06-16 09:14:00', 1936, 454, '2005-06-17 10:46:00', 1, 1, '2006-02-15 13:30:00'),
 (1648, '2005-06-16 09:17:00', 457, 427, '2005-06-24 06:31:00', 2, 1, '2006-02-15 13:30:00'),
@@ -32742,7 +32742,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (2187, '2005-06-18 01:17:00', 1385, 477, '2005-06-20 22:18:00', 1, 1, '2006-02-15 13:30:00'),
 (2188, '2005-06-18 01:19:00', 712, 183, '2005-06-25 03:59:00', 2, 1, '2006-02-15 13:30:00'),
 (2189, '2005-06-18 01:20:00', 249, 500, '2005-06-25 00:30:00', 1, 1, '2006-02-15 13:30:00');
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (2190, '2005-06-18 01:29:00', 4398, 342, '2005-06-26 04:31:00', 2, 1, '2006-02-15 13:30:00'),
 (2191, '2005-06-18 01:33:00', 3369, 58, '2005-06-19 20:18:00', 1, 1, '2006-02-15 13:30:00'),
 (2192, '2005-06-18 01:35:00', 1886, 456, '2005-06-23 23:38:00', 2, 1, '2006-02-15 13:30:00'),
@@ -33287,7 +33287,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (2732, '2005-06-19 15:19:00', 610, 386, '2005-06-25 19:39:00', 2, 1, '2006-02-15 13:30:00'),
 (2733, '2005-06-19 15:21:00', 1535, 188, '2005-06-23 11:58:00', 2, 1, '2006-02-15 13:30:00'),
 (2734, '2005-06-19 15:36:00', 794, 204, '2005-06-20 13:44:00', 2, 1, '2006-02-15 13:30:00');
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (2735, '2005-06-19 15:42:00', 4550, 29, '2005-06-22 17:28:00', 1, 1, '2006-02-15 13:30:00'),
 (2736, '2005-06-19 15:43:00', 4510, 359, '2005-06-21 13:03:00', 1, 1, '2006-02-15 13:30:00'),
 (2737, '2005-06-19 15:48:00', 3131, 513, '2005-06-26 18:44:00', 2, 1, '2006-02-15 13:30:00'),
@@ -33832,7 +33832,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (3276, '2005-06-21 05:35:00', 1890, 425, '2005-06-29 03:26:00', 2, 1, '2006-02-15 13:30:00'),
 (3277, '2005-06-21 05:36:00', 1330, 229, '2005-06-29 10:54:00', 1, 1, '2006-02-15 13:30:00'),
 (3278, '2005-06-21 05:41:00', 2832, 554, '2005-06-22 03:43:00', 1, 1, '2006-02-15 13:30:00');
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (3279, '2005-06-21 06:05:00', 1672, 462, '2005-06-25 09:40:00', 1, 1, '2006-02-15 13:30:00'),
 (3280, '2005-06-21 06:08:00', 661, 229, '2005-06-24 09:34:00', 1, 1, '2006-02-15 13:30:00'),
 (3281, '2005-06-21 06:08:00', 4006, 363, '2005-06-24 11:22:00', 1, 1, '2006-02-15 13:30:00'),
@@ -34377,7 +34377,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (3820, '2005-07-06 15:35:00', 4192, 460, '2005-07-11 12:22:00', 2, 1, '2006-02-15 13:30:00'),
 (3821, '2005-07-06 15:36:00', 4385, 354, '2005-07-11 20:04:00', 1, 1, '2006-02-15 13:30:00'),
 (3822, '2005-07-06 15:41:00', 1314, 241, '2005-07-07 16:41:00', 1, 1, '2006-02-15 13:30:00');
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (3823, '2005-07-06 15:41:00', 124, 265, '2005-07-09 09:48:00', 1, 1, '2006-02-15 13:30:00'),
 (3824, '2005-07-06 15:43:00', 3107, 107, '2005-07-13 16:05:00', 2, 1, '2006-02-15 13:30:00'),
 (3825, '2005-07-06 15:50:00', 630, 132, '2005-07-09 19:20:00', 1, 1, '2006-02-15 13:30:00'),
@@ -34922,7 +34922,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (4364, '2005-07-07 19:46:00', 10, 145, '2005-07-08 21:55:00', 1, 1, '2006-02-15 13:30:00'),
 (4365, '2005-07-07 19:47:00', 3207, 442, '2005-07-08 23:21:00', 2, 1, '2006-02-15 13:30:00'),
 (4366, '2005-07-07 19:48:00', 2961, 524, '2005-07-14 01:14:00', 1, 1, '2006-02-15 13:30:00');
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (4367, '2005-07-07 19:52:00', 4529, 48, '2005-07-13 19:41:00', 2, 1, '2006-02-15 13:30:00'),
 (4368, '2005-07-07 19:55:00', 736, 324, '2005-07-09 00:11:00', 1, 1, '2006-02-15 13:30:00'),
 (4369, '2005-07-07 20:01:00', 3552, 517, '2005-07-13 01:19:00', 2, 1, '2006-02-15 13:30:00'),
@@ -35467,7 +35467,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (4908, '2005-07-08 21:05:00', 1963, 160, '2005-07-17 21:33:00', 2, 1, '2006-02-15 13:30:00'),
 (4909, '2005-07-08 21:07:00', 1451, 228, '2005-07-10 22:34:00', 1, 1, '2006-02-15 13:30:00'),
 (4910, '2005-07-08 21:13:00', 3675, 219, '2005-07-18 02:39:00', 2, 1, '2006-02-15 13:30:00');
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (4911, '2005-07-08 21:20:00', 4479, 66, '2005-07-15 03:11:00', 1, 1, '2006-02-15 13:30:00'),
 (4912, '2005-07-08 21:26:00', 2012, 275, '2005-07-18 02:19:00', 1, 1, '2006-02-15 13:30:00'),
 (4913, '2005-07-08 21:27:00', 982, 368, '2005-07-18 02:51:00', 1, 1, '2006-02-15 13:30:00'),
@@ -36012,7 +36012,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (5452, '2005-07-09 22:23:00', 2036, 80, '2005-07-17 00:20:00', 1, 1, '2006-02-15 13:30:00'),
 (5453, '2005-07-09 22:24:00', 1780, 106, '2005-07-19 04:08:00', 1, 1, '2006-02-15 13:30:00'),
 (5454, '2005-07-09 22:24:00', 3049, 97, '2005-07-11 01:52:00', 1, 1, '2006-02-15 13:30:00');
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (5455, '2005-07-09 22:28:00', 1955, 464, '2005-07-18 02:50:00', 2, 1, '2006-02-15 13:30:00'),
 (5456, '2005-07-09 22:31:00', 3003, 360, '2005-07-12 03:53:00', 1, 1, '2006-02-15 13:30:00'),
 (5457, '2005-07-09 22:33:00', 4179, 433, '2005-07-12 02:30:00', 1, 1, '2006-02-15 13:30:00'),
@@ -36557,7 +36557,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (5996, '2005-07-11 01:18:00', 4263, 223, '2005-07-17 04:18:00', 1, 1, '2006-02-15 13:30:00'),
 (5997, '2005-07-11 01:19:00', 3542, 128, '2005-07-16 06:29:00', 1, 1, '2006-02-15 13:30:00'),
 (5998, '2005-07-11 01:20:00', 1458, 250, '2005-07-15 21:41:00', 1, 1, '2006-02-15 13:30:00');
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (5999, '2005-07-11 01:21:00', 211, 450, '2005-07-19 01:35:00', 1, 1, '2006-02-15 13:30:00'),
 (6000, '2005-07-11 01:23:00', 1986, 371, '2005-07-12 04:39:00', 2, 1, '2006-02-15 13:30:00'),
 (6001, '2005-07-11 01:24:00', 1779, 45, '2005-07-11 22:55:00', 1, 1, '2006-02-15 13:30:00'),
@@ -37102,7 +37102,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (6540, '2005-07-12 04:51:00', 937, 156, '2005-07-21 03:38:00', 1, 1, '2006-02-15 13:30:00'),
 (6541, '2005-07-12 04:53:00', 1795, 529, '2005-07-17 23:17:00', 2, 1, '2006-02-15 13:30:00'),
 (6542, '2005-07-12 04:53:00', 2421, 359, '2005-07-13 01:48:00', 1, 1, '2006-02-15 13:30:00');
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (6543, '2005-07-12 04:54:00', 2568, 264, '2005-07-15 09:50:00', 2, 1, '2006-02-15 13:30:00'),
 (6544, '2005-07-12 04:56:00', 1218, 97, '2005-07-17 08:28:00', 1, 1, '2006-02-15 13:30:00'),
 (6545, '2005-07-12 04:56:00', 4447, 376, '2005-07-20 05:41:00', 1, 1, '2006-02-15 13:30:00'),
@@ -37647,7 +37647,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (7085, '2005-07-27 04:35:00', 2603, 223, '2005-08-05 07:10:00', 2, 1, '2006-02-15 13:30:00'),
 (7086, '2005-07-27 04:39:00', 2938, 595, '2005-08-05 00:32:00', 2, 1, '2006-02-15 13:30:00'),
 (7087, '2005-07-27 04:42:00', 1159, 22, '2005-08-02 00:53:00', 1, 1, '2006-02-15 13:30:00');
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (7088, '2005-07-27 04:42:00', 373, 88, '2005-08-04 07:09:00', 2, 1, '2006-02-15 13:30:00'),
 (7089, '2005-07-27 04:43:00', 1380, 446, '2005-07-30 10:04:00', 1, 1, '2006-02-15 13:30:00'),
 (7090, '2005-07-27 04:43:00', 3495, 218, '2005-07-29 07:33:00', 2, 1, '2006-02-15 13:30:00'),
@@ -38192,7 +38192,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (7629, '2005-07-28 01:00:00', 2453, 229, '2005-07-30 06:49:00', 1, 1, '2006-02-15 13:30:00'),
 (7630, '2005-07-28 01:01:00', 2798, 351, '2005-07-31 01:08:00', 2, 1, '2006-02-15 13:30:00'),
 (7631, '2005-07-28 01:01:00', 2437, 132, '2005-08-01 06:16:00', 2, 1, '2006-02-15 13:30:00');
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (7632, '2005-07-28 01:02:00', 3233, 181, '2005-07-30 05:31:00', 2, 1, '2006-02-15 13:30:00'),
 (7633, '2005-07-28 01:03:00', 4171, 402, '2005-08-01 23:54:00', 2, 1, '2006-02-15 13:30:00'),
 (7634, '2005-07-28 01:07:00', 4487, 365, '2005-07-31 05:00:00', 1, 1, '2006-02-15 13:30:00'),
@@ -38737,7 +38737,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (8173, '2005-07-28 21:35:00', 4377, 332, '2005-08-06 19:15:00', 2, 1, '2006-02-15 13:30:00'),
 (8174, '2005-07-28 21:36:00', 465, 359, '2005-08-04 00:32:00', 1, 1, '2006-02-15 13:30:00'),
 (8175, '2005-07-28 21:38:00', 641, 429, '2005-08-07 01:34:00', 2, 1, '2006-02-15 13:30:00');
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (8176, '2005-07-28 21:42:00', 3527, 347, '2005-08-03 22:59:00', 2, 1, '2006-02-15 13:30:00'),
 (8177, '2005-07-28 21:43:00', 3696, 122, '2005-08-02 22:38:00', 2, 1, '2006-02-15 13:30:00'),
 (8178, '2005-07-28 21:54:00', 2825, 503, '2005-08-02 23:56:00', 2, 1, '2006-02-15 13:30:00'),
@@ -39282,7 +39282,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (8717, '2005-07-29 17:40:00', 1821, 260, '2005-08-01 22:38:00', 2, 1, '2006-02-15 13:30:00'),
 (8718, '2005-07-29 17:41:00', 137, 23, '2005-08-01 18:22:00', 2, 1, '2006-02-15 13:30:00'),
 (8719, '2005-07-29 17:45:00', 995, 333, '2005-08-01 13:53:00', 1, 1, '2006-02-15 13:30:00');
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (8720, '2005-07-29 17:48:00', 152, 180, '2005-08-04 14:30:00', 2, 1, '2006-02-15 13:30:00'),
 (8721, '2005-07-29 17:56:00', 2416, 312, '2005-08-02 21:30:00', 2, 1, '2006-02-15 13:30:00'),
 (8722, '2005-07-29 17:58:00', 1389, 401, '2005-08-07 23:40:00', 1, 1, '2006-02-15 13:30:00'),
@@ -39827,7 +39827,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (9261, '2005-07-30 14:39:00', 372, 380, '2005-08-08 11:26:00', 1, 1, '2006-02-15 13:30:00'),
 (9262, '2005-07-30 14:45:00', 2322, 349, '2005-08-05 15:18:00', 2, 1, '2006-02-15 13:30:00'),
 (9263, '2005-07-30 14:48:00', 73, 410, '2005-08-04 19:06:00', 2, 1, '2006-02-15 13:30:00');
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (9264, '2005-07-30 14:51:00', 4071, 157, '2005-08-02 10:06:00', 1, 1, '2006-02-15 13:30:00'),
 (9265, '2005-07-30 14:55:00', 3700, 560, '2005-08-02 11:34:00', 1, 1, '2006-02-15 13:30:00'),
 (9266, '2005-07-30 14:59:00', 1705, 364, '2005-07-31 17:01:00', 2, 1, '2006-02-15 13:30:00'),
@@ -40372,7 +40372,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (9806, '2005-07-31 11:13:00', 245, 46, '2005-08-04 06:18:00', 1, 1, '2006-02-15 13:30:00'),
 (9807, '2005-07-31 11:13:00', 2137, 267, '2005-08-02 07:34:00', 1, 1, '2006-02-15 13:30:00'),
 (9808, '2005-07-31 11:17:00', 3259, 583, '2005-08-07 15:54:00', 1, 1, '2006-02-15 13:30:00');
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (9809, '2005-07-31 11:19:00', 359, 286, '2005-08-08 12:43:00', 2, 1, '2006-02-15 13:30:00'),
 (9810, '2005-07-31 11:22:00', 2066, 545, '2005-08-01 09:40:00', 2, 1, '2006-02-15 13:30:00'),
 (9811, '2005-07-31 11:23:00', 3305, 77, '2005-08-06 15:51:00', 1, 1, '2006-02-15 13:30:00'),
@@ -40913,7 +40913,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (10346, '2005-08-01 05:19:00', 4192, 476, '2005-08-06 01:00:00', 1, 1, '2006-02-15 13:30:00'),
 (10347, '2005-08-01 05:20:00', 953, 574, '2005-08-04 10:03:00', 1, 1, '2006-02-15 13:30:00'),
 (10348, '2005-08-01 05:23:00', 2076, 14, '2005-08-04 01:12:00', 2, 1, '2006-02-15 13:30:00');
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (10349, '2005-08-01 05:27:00', 114, 295, '2005-08-08 10:15:00', 1, 1, '2006-02-15 13:30:00'),
 (10350, '2005-08-01 05:30:00', 2067, 78, '2005-08-05 09:59:00', 1, 1, '2006-02-15 13:30:00'),
 (10351, '2005-08-01 05:32:00', 3725, 173, '2005-08-08 09:48:00', 1, 1, '2006-02-15 13:30:00'),
@@ -41452,7 +41452,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (10884, '2005-08-02 00:47:00', 3702, 569, '2005-08-03 04:38:00', 1, 1, '2006-02-15 13:30:00'),
 (10885, '2005-08-02 00:51:00', 4223, 493, '2005-08-09 20:49:00', 2, 1, '2006-02-15 13:30:00'),
 (10886, '2005-08-02 00:52:00', 943, 77, '2005-08-08 00:30:00', 1, 1, '2006-02-15 13:30:00');
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (10887, '2005-08-02 00:52:00', 3450, 573, '2005-08-03 05:37:00', 1, 1, '2006-02-15 13:30:00'),
 (10888, '2005-08-02 00:52:00', 2412, 428, '2005-08-03 03:07:00', 1, 1, '2006-02-15 13:30:00'),
 (10889, '2005-08-02 00:54:00', 2098, 64, '2005-08-07 19:42:00', 1, 1, '2006-02-15 13:30:00'),
@@ -41991,7 +41991,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (11422, '2005-08-02 19:52:00', 342, 72, '2005-08-11 18:40:00', 2, 1, '2006-02-15 13:30:00'),
 (11423, '2005-08-02 19:57:00', 3431, 241, '2005-08-06 00:54:00', 2, 1, '2006-02-15 13:30:00'),
 (11424, '2005-08-02 19:57:00', 1030, 84, '2005-08-10 16:57:00', 2, 1, '2006-02-15 13:30:00');
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (11425, '2005-08-02 19:58:00', 989, 419, '2005-08-03 19:30:00', 2, 1, '2006-02-15 13:30:00'),
 (11426, '2005-08-02 20:00:00', 130, 572, '2005-08-09 01:30:00', 2, 1, '2006-02-15 13:30:00'),
 (11427, '2005-08-02 20:02:00', 3287, 403, '2005-08-04 22:26:00', 2, 1, '2006-02-15 13:30:00'),
@@ -42534,7 +42534,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (11964, '2005-08-17 17:37:00', 2225, 309, '2005-08-25 11:55:00', 2, 1, '2006-02-15 13:30:00'),
 (11965, '2005-08-17 17:39:00', 194, 490, '2005-08-19 12:05:00', 1, 1, '2006-02-15 13:30:00'),
 (11966, '2005-08-17 17:40:00', 3702, 283, '2005-08-20 15:45:00', 1, 1, '2006-02-15 13:30:00');
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (11967, '2005-08-17 17:45:00', 1151, 521, '2005-08-22 13:03:00', 1, 1, '2006-02-15 13:30:00'),
 (11968, '2005-08-17 17:47:00', 698, 239, '2005-08-18 19:40:00', 1, 1, '2006-02-15 13:30:00'),
 (11969, '2005-08-17 17:49:00', 668, 550, '2005-08-19 19:45:00', 2, 1, '2006-02-15 13:30:00'),
@@ -43076,7 +43076,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (12505, '2005-08-18 13:17:00', 3741, 406, '2005-08-23 18:03:00', 1, 1, '2006-02-15 13:30:00'),
 (12506, '2006-02-14 15:16:00', 1132, 114, NULL, 2, 1, '2006-02-15 13:30:00'),
 (12507, '2005-08-18 13:19:00', 199, 584, '2005-08-27 11:48:00', 2, 1, '2006-02-15 13:30:00');
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (12508, '2005-08-18 13:20:00', 1059, 29, '2005-08-22 12:55:00', 1, 1, '2006-02-15 13:30:00'),
 (12509, '2005-08-18 13:21:00', 2462, 175, '2005-08-20 12:14:00', 2, 1, '2006-02-15 13:30:00'),
 (12510, '2005-08-18 13:22:00', 3051, 394, '2005-08-27 17:38:00', 2, 1, '2006-02-15 13:30:00'),
@@ -43620,7 +43620,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (13048, '2005-08-19 09:25:00', 1029, 486, '2005-08-28 11:18:00', 2, 1, '2006-02-15 13:30:00'),
 (13049, '2005-08-19 09:25:00', 4122, 53, '2005-08-27 10:19:00', 2, 1, '2006-02-15 13:30:00'),
 (13050, '2005-08-19 09:31:00', 3682, 131, '2005-08-26 06:56:00', 2, 1, '2006-02-15 13:30:00');
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (13051, '2005-08-19 09:31:00', 4064, 90, '2005-08-28 06:15:00', 1, 1, '2006-02-15 13:30:00'),
 (13052, '2005-08-19 09:31:00', 3036, 502, '2005-08-28 15:11:00', 2, 1, '2006-02-15 13:30:00'),
 (13053, '2005-08-19 09:31:00', 2044, 140, '2005-08-28 07:51:00', 2, 1, '2006-02-15 13:30:00'),
@@ -44164,7 +44164,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (13591, '2005-08-20 05:50:00', 3089, 390, '2005-08-27 08:43:00', 2, 1, '2006-02-15 13:30:00'),
 (13592, '2005-08-20 05:50:00', 1509, 470, '2005-08-23 04:52:00', 1, 1, '2006-02-15 13:30:00'),
 (13593, '2005-08-20 05:50:00', 261, 585, '2005-08-27 05:28:00', 2, 1, '2006-02-15 13:30:00');
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (13594, '2005-08-20 05:53:00', 3424, 7, '2005-08-23 09:01:00', 1, 1, '2006-02-15 13:30:00'),
 (13595, '2005-08-20 05:54:00', 673, 545, '2005-08-29 01:25:00', 1, 1, '2006-02-15 13:30:00'),
 (13596, '2005-08-20 05:58:00', 482, 513, '2005-08-27 08:35:00', 1, 1, '2006-02-15 13:30:00'),
@@ -44706,7 +44706,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (14132, '2005-08-21 01:43:00', 3806, 91, '2005-08-26 20:16:00', 2, 1, '2006-02-15 13:30:00'),
 (14133, '2005-08-21 01:44:00', 2463, 453, '2005-08-30 02:19:00', 2, 1, '2006-02-15 13:30:00'),
 (14134, '2005-08-21 01:45:00', 2159, 497, '2005-08-24 01:36:00', 1, 1, '2006-02-15 13:30:00');
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (14135, '2005-08-21 01:53:00', 347, 59, '2005-08-27 05:57:00', 1, 1, '2006-02-15 13:30:00'),
 (14136, '2005-08-21 01:57:00', 268, 135, '2005-08-28 01:11:00', 1, 1, '2006-02-15 13:30:00'),
 (14137, '2006-02-14 15:16:00', 2346, 53, NULL, 2, 1, '2006-02-15 13:30:00'),
@@ -45250,7 +45250,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (14675, '2005-08-21 20:01:00', 328, 170, '2005-08-26 14:30:00', 2, 1, '2006-02-15 13:30:00'),
 (14676, '2005-08-21 20:02:00', 877, 49, '2005-08-26 21:55:00', 1, 1, '2006-02-15 13:30:00'),
 (14677, '2005-08-21 20:12:00', 4411, 26, '2005-08-28 15:11:00', 1, 1, '2006-02-15 13:30:00');
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (14678, '2005-08-21 20:12:00', 1911, 383, '2005-08-31 02:11:00', 2, 1, '2006-02-15 13:30:00'),
 (14679, '2005-08-21 20:14:00', 1520, 193, '2005-08-23 23:39:00', 1, 1, '2006-02-15 13:30:00'),
 (14680, '2005-08-21 20:19:00', 4469, 524, '2005-08-28 17:10:00', 1, 1, '2006-02-15 13:30:00'),
@@ -45791,7 +45791,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (15215, '2005-08-22 16:55:00', 1906, 344, '2005-08-25 20:19:00', 1, 1, '2006-02-15 13:30:00'),
 (15216, '2005-08-22 16:57:00', 1633, 166, '2005-08-24 16:11:00', 2, 1, '2006-02-15 13:30:00'),
 (15217, '2005-08-22 16:58:00', 91, 90, '2005-08-23 22:33:00', 1, 1, '2006-02-15 13:30:00');
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (15218, '2005-08-22 16:59:00', 10, 139, '2005-08-30 17:01:00', 1, 1, '2006-02-15 13:30:00'),
 (15219, '2005-08-22 17:00:00', 3313, 544, '2005-08-31 20:16:00', 1, 1, '2006-02-15 13:30:00'),
 (15220, '2005-08-22 17:02:00', 187, 128, '2005-08-28 21:02:00', 1, 1, '2006-02-15 13:30:00'),
@@ -46335,7 +46335,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (15759, '2005-08-23 12:47:00', 1341, 361, '2005-09-01 11:28:00', 2, 1, '2006-02-15 13:30:00'),
 (15760, '2005-08-23 12:50:00', 3050, 273, '2005-08-29 15:41:00', 2, 1, '2006-02-15 13:30:00'),
 (15761, '2005-08-23 12:55:00', 4362, 416, '2005-08-26 16:51:00', 1, 1, '2006-02-15 13:30:00');
-INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `item_received`, `last_update`) VALUES
+INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`, `return_date`, `staff_id`, `status_id`, `last_update`) VALUES
 (15762, '2005-08-23 13:01:00', 887, 351, '2005-08-26 16:35:00', 1, 1, '2006-02-15 13:30:00'),
 (15763, '2005-08-23 13:02:00', 124, 158, '2005-08-24 17:45:00', 2, 1, '2006-02-15 13:30:00'),
 (15764, '2005-08-23 13:05:00', 2937, 8, '2005-08-25 16:15:00', 1, 1, '2006-02-15 13:30:00'),
@@ -46628,6 +46628,27 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `rental_status`
+--
+
+CREATE TABLE `rental_status` (
+  `status_id` int(2) NOT NULL,
+  `status_name` varchar(30) NOT NULL,
+  `last_update` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `rental_status`
+--
+
+INSERT INTO `rental_status` (`status_id`, `status_name`, `last_update`) VALUES
+(1, 'Will be picked up at store', '2020-03-26 07:59:36'),
+(2, 'Will be delivered', '2020-03-26 08:00:17'),
+(3, 'Received by customer', '2020-03-26 08:00:17');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `staff`
 --
 
@@ -46773,7 +46794,14 @@ ALTER TABLE `rental`
   ADD PRIMARY KEY (`rental_id`),
   ADD KEY `inventory_id` (`inventory_id`),
   ADD KEY `customer_id` (`customer_id`),
-  ADD KEY `staff_id` (`staff_id`);
+  ADD KEY `staff_id` (`staff_id`),
+  ADD KEY `status_id` (`status_id`);
+
+--
+-- Indexes for table `rental_status`
+--
+ALTER TABLE `rental_status`
+  ADD PRIMARY KEY (`status_id`);
 
 --
 -- Indexes for table `staff`
@@ -46862,6 +46890,12 @@ ALTER TABLE `rental`
   MODIFY `rental_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16050;
 
 --
+-- AUTO_INCREMENT for table `rental_status`
+--
+ALTER TABLE `rental_status`
+  MODIFY `status_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
@@ -46938,7 +46972,8 @@ ALTER TABLE `rental`
   ADD CONSTRAINT `rental_ibfk_1` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`staff_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `rental_ibfk_2` FOREIGN KEY (`rental_id`) REFERENCES `payment` (`rental_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `rental_ibfk_3` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`inventory_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `rental_ibfk_4` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `rental_ibfk_4` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `rental_ibfk_5` FOREIGN KEY (`status_id`) REFERENCES `rental_status` (`status_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `staff`
