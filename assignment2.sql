@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 28, 2020 at 10:03 AM
+-- Generation Time: Mar 29, 2020 at 05:54 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -14417,7 +14417,7 @@ INSERT INTO `inventory` (`inventory_id`, `film_id`, `store_id`, `inventory_statu
 --
 
 CREATE TABLE `inventory_status` (
-  `in_status_id` int(1) NOT NULL,
+  `inventory_status_id` int(1) NOT NULL,
   `in_stat_name` varchar(20) NOT NULL,
   `last_update` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -14426,7 +14426,7 @@ CREATE TABLE `inventory_status` (
 -- Dumping data for table `inventory_status`
 --
 
-INSERT INTO `inventory_status` (`in_status_id`, `in_stat_name`, `last_update`) VALUES
+INSERT INTO `inventory_status` (`inventory_status_id`, `in_stat_name`, `last_update`) VALUES
 (1, 'Lost', '2020-03-28 08:58:56'),
 (2, 'Discarded', '2020-03-28 08:59:26'),
 (3, 'Available', '2020-03-28 08:59:26');
@@ -30560,7 +30560,7 @@ INSERT INTO `payment` (`payment_id`, `customer_id`, `staff_id`, `rental_id`, `am
 CREATE TABLE `rental` (
   `rental_id` int(10) NOT NULL,
   `rental_date` datetime NOT NULL,
-  `inventory_id` int(7) NOT NULL,
+  `inventory_id` int(7) DEFAULT NULL,
   `customer_id` int(5) NOT NULL,
   `return_date` datetime DEFAULT NULL,
   `staff_id` int(3) NOT NULL,
@@ -46799,7 +46799,7 @@ ALTER TABLE `inventory`
 -- Indexes for table `inventory_status`
 --
 ALTER TABLE `inventory_status`
-  ADD PRIMARY KEY (`in_status_id`);
+  ADD PRIMARY KEY (`inventory_status_id`);
 
 --
 -- Indexes for table `language`
@@ -46904,7 +46904,7 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT for table `inventory_status`
 --
 ALTER TABLE `inventory_status`
-  MODIFY `in_status_id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `inventory_status_id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `language`
@@ -46992,7 +46992,7 @@ ALTER TABLE `film_category`
 ALTER TABLE `inventory`
   ADD CONSTRAINT `inventory_ibfk_1` FOREIGN KEY (`film_id`) REFERENCES `film` (`film_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `inventory_ibfk_2` FOREIGN KEY (`store_id`) REFERENCES `store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `inventory_ibfk_3` FOREIGN KEY (`inventory_status_id`) REFERENCES `inventory_status` (`in_status_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `inventory_ibfk_3` FOREIGN KEY (`inventory_status_id`) REFERENCES `inventory_status` (`inventory_status_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `payment`
@@ -47007,9 +47007,9 @@ ALTER TABLE `payment`
 --
 ALTER TABLE `rental`
   ADD CONSTRAINT `rental_ibfk_1` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`staff_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `rental_ibfk_3` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`inventory_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `rental_ibfk_4` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `rental_ibfk_5` FOREIGN KEY (`status_id`) REFERENCES `rental_status` (`status_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `rental_ibfk_5` FOREIGN KEY (`status_id`) REFERENCES `rental_status` (`status_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `rental_ibfk_6` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`inventory_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Constraints for table `staff`
