@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 28, 2020 at 03:41 PM
+-- Generation Time: Mar 28, 2020 at 10:03 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -3322,6 +3322,50 @@ CREATE TABLE `film_actor` (
 --
 
 INSERT INTO `film_actor` (`actor_id`, `film_id`, `last_update`) VALUES
+(1, 1, '2006-02-14 21:05:00'),
+(1, 23, '2006-02-14 21:05:00'),
+(1, 25, '2006-02-14 21:05:00'),
+(1, 106, '2006-02-14 21:05:00'),
+(1, 140, '2006-02-14 21:05:00'),
+(1, 166, '2006-02-14 21:05:00'),
+(1, 277, '2006-02-14 21:05:00'),
+(1, 361, '2006-02-14 21:05:00'),
+(1, 438, '2006-02-14 21:05:00'),
+(1, 499, '2006-02-14 21:05:00'),
+(1, 506, '2006-02-14 21:05:00'),
+(1, 509, '2006-02-14 21:05:00'),
+(1, 605, '2006-02-14 21:05:00'),
+(1, 635, '2006-02-14 21:05:00'),
+(1, 749, '2006-02-14 21:05:00'),
+(1, 832, '2006-02-14 21:05:00'),
+(1, 939, '2006-02-14 21:05:00'),
+(1, 970, '2006-02-14 21:05:00'),
+(1, 980, '2006-02-14 21:05:00'),
+(2, 3, '2006-02-14 21:05:00'),
+(2, 31, '2006-02-14 21:05:00'),
+(2, 47, '2006-02-14 21:05:00'),
+(2, 105, '2006-02-14 21:05:00'),
+(2, 132, '2006-02-14 21:05:00'),
+(2, 145, '2006-02-14 21:05:00'),
+(2, 226, '2006-02-14 21:05:00'),
+(2, 249, '2006-02-14 21:05:00'),
+(2, 314, '2006-02-14 21:05:00'),
+(2, 321, '2006-02-14 21:05:00'),
+(2, 357, '2006-02-14 21:05:00'),
+(2, 369, '2006-02-14 21:05:00'),
+(2, 399, '2006-02-14 21:05:00'),
+(2, 458, '2006-02-14 21:05:00'),
+(2, 481, '2006-02-14 21:05:00'),
+(2, 485, '2006-02-14 21:05:00'),
+(2, 518, '2006-02-14 21:05:00'),
+(2, 540, '2006-02-14 21:05:00'),
+(2, 550, '2006-02-14 21:05:00'),
+(2, 555, '2006-02-14 21:05:00'),
+(2, 561, '2006-02-14 21:05:00'),
+(2, 742, '2006-02-14 21:05:00'),
+(2, 754, '2006-02-14 21:05:00'),
+(2, 811, '2006-02-14 21:05:00'),
+(2, 958, '2006-02-14 21:05:00'),
 (3, 17, '2006-02-14 21:05:00'),
 (3, 40, '2006-02-14 21:05:00'),
 (3, 42, '2006-02-14 21:05:00'),
@@ -4849,7 +4893,8 @@ INSERT INTO `film_actor` (`actor_id`, `film_id`, `last_update`) VALUES
 (59, 946, '2006-02-14 21:05:00'),
 (59, 984, '2006-02-14 21:05:00'),
 (60, 31, '2006-02-14 21:05:00'),
-(60, 85, '2006-02-14 21:05:00'),
+(60, 85, '2006-02-14 21:05:00');
+INSERT INTO `film_actor` (`actor_id`, `film_id`, `last_update`) VALUES
 (60, 133, '2006-02-14 21:05:00'),
 (60, 142, '2006-02-14 21:05:00'),
 (60, 177, '2006-02-14 21:05:00'),
@@ -4891,8 +4936,7 @@ INSERT INTO `film_actor` (`actor_id`, `film_id`, `last_update`) VALUES
 (61, 374, '2006-02-14 21:05:00'),
 (61, 423, '2006-02-14 21:05:00'),
 (61, 433, '2006-02-14 21:05:00'),
-(61, 508, '2006-02-14 21:05:00');
-INSERT INTO `film_actor` (`actor_id`, `film_id`, `last_update`) VALUES
+(61, 508, '2006-02-14 21:05:00'),
 (61, 518, '2006-02-14 21:05:00'),
 (61, 519, '2006-02-14 21:05:00'),
 (61, 535, '2006-02-14 21:05:00'),
@@ -6400,7 +6444,8 @@ INSERT INTO `film_actor` (`actor_id`, `film_id`, `last_update`) VALUES
 (114, 993, '2006-02-14 21:05:00'),
 (115, 49, '2006-02-14 21:05:00'),
 (115, 52, '2006-02-14 21:05:00'),
-(115, 245, '2006-02-14 21:05:00'),
+(115, 245, '2006-02-14 21:05:00');
+INSERT INTO `film_actor` (`actor_id`, `film_id`, `last_update`) VALUES
 (115, 246, '2006-02-14 21:05:00'),
 (115, 277, '2006-02-14 21:05:00'),
 (115, 302, '2006-02-14 21:05:00'),
@@ -6441,8 +6486,7 @@ INSERT INTO `film_actor` (`actor_id`, `film_id`, `last_update`) VALUES
 (116, 481, '2006-02-14 21:05:00'),
 (116, 492, '2006-02-14 21:05:00'),
 (116, 584, '2006-02-14 21:05:00'),
-(116, 606, '2006-02-14 21:05:00');
-INSERT INTO `film_actor` (`actor_id`, `film_id`, `last_update`) VALUES
+(116, 606, '2006-02-14 21:05:00'),
 (116, 622, '2006-02-14 21:05:00'),
 (116, 647, '2006-02-14 21:05:00'),
 (116, 653, '2006-02-14 21:05:00'),
@@ -7919,7 +7963,8 @@ INSERT INTO `film_actor` (`actor_id`, `film_id`, `last_update`) VALUES
 (170, 27, '2006-02-14 21:05:00'),
 (170, 33, '2006-02-14 21:05:00'),
 (170, 102, '2006-02-14 21:05:00'),
-(170, 139, '2006-02-14 21:05:00'),
+(170, 139, '2006-02-14 21:05:00');
+INSERT INTO `film_actor` (`actor_id`, `film_id`, `last_update`) VALUES
 (170, 180, '2006-02-14 21:05:00'),
 (170, 184, '2006-02-14 21:05:00'),
 (170, 212, '2006-02-14 21:05:00'),
@@ -7960,8 +8005,7 @@ INSERT INTO `film_actor` (`actor_id`, `film_id`, `last_update`) VALUES
 (171, 701, '2006-02-14 21:05:00'),
 (171, 761, '2006-02-14 21:05:00'),
 (171, 779, '2006-02-14 21:05:00'),
-(171, 849, '2006-02-14 21:05:00');
-INSERT INTO `film_actor` (`actor_id`, `film_id`, `last_update`) VALUES
+(171, 849, '2006-02-14 21:05:00'),
 (171, 872, '2006-02-14 21:05:00'),
 (171, 892, '2006-02-14 21:05:00'),
 (171, 898, '2006-02-14 21:05:00'),
@@ -14373,7 +14417,7 @@ INSERT INTO `inventory` (`inventory_id`, `film_id`, `store_id`, `inventory_statu
 --
 
 CREATE TABLE `inventory_status` (
-  `inventory_status_id` int(1) NOT NULL,
+  `in_status_id` int(1) NOT NULL,
   `in_stat_name` varchar(20) NOT NULL,
   `last_update` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -14382,7 +14426,7 @@ CREATE TABLE `inventory_status` (
 -- Dumping data for table `inventory_status`
 --
 
-INSERT INTO `inventory_status` (`inventory_status_id`, `in_stat_name`, `last_update`) VALUES
+INSERT INTO `inventory_status` (`in_status_id`, `in_stat_name`, `last_update`) VALUES
 (1, 'Lost', '2020-03-28 08:58:56'),
 (2, 'Discarded', '2020-03-28 08:59:26'),
 (3, 'Available', '2020-03-28 08:59:26');
@@ -30516,7 +30560,7 @@ INSERT INTO `payment` (`payment_id`, `customer_id`, `staff_id`, `rental_id`, `am
 CREATE TABLE `rental` (
   `rental_id` int(10) NOT NULL,
   `rental_date` datetime NOT NULL,
-  `inventory_id` int(7) DEFAULT NULL,
+  `inventory_id` int(7) NOT NULL,
   `customer_id` int(5) NOT NULL,
   `return_date` datetime DEFAULT NULL,
   `staff_id` int(3) NOT NULL,
@@ -46755,7 +46799,7 @@ ALTER TABLE `inventory`
 -- Indexes for table `inventory_status`
 --
 ALTER TABLE `inventory_status`
-  ADD PRIMARY KEY (`inventory_status_id`);
+  ADD PRIMARY KEY (`in_status_id`);
 
 --
 -- Indexes for table `language`
@@ -46860,7 +46904,7 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT for table `inventory_status`
 --
 ALTER TABLE `inventory_status`
-  MODIFY `inventory_status_id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `in_status_id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `language`
@@ -46872,13 +46916,13 @@ ALTER TABLE `language`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `payment_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16051;
+  MODIFY `payment_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16050;
 
 --
 -- AUTO_INCREMENT for table `rental`
 --
 ALTER TABLE `rental`
-  MODIFY `rental_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16051;
+  MODIFY `rental_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16050;
 
 --
 -- AUTO_INCREMENT for table `rental_status`
@@ -46948,7 +46992,7 @@ ALTER TABLE `film_category`
 ALTER TABLE `inventory`
   ADD CONSTRAINT `inventory_ibfk_1` FOREIGN KEY (`film_id`) REFERENCES `film` (`film_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `inventory_ibfk_2` FOREIGN KEY (`store_id`) REFERENCES `store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `inventory_ibfk_3` FOREIGN KEY (`inventory_status_id`) REFERENCES `inventory_status` (`inventory_status_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `inventory_ibfk_3` FOREIGN KEY (`inventory_status_id`) REFERENCES `inventory_status` (`in_status_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `payment`
@@ -46963,9 +47007,9 @@ ALTER TABLE `payment`
 --
 ALTER TABLE `rental`
   ADD CONSTRAINT `rental_ibfk_1` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`staff_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `rental_ibfk_3` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`inventory_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `rental_ibfk_4` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `rental_ibfk_5` FOREIGN KEY (`status_id`) REFERENCES `rental_status` (`status_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `rental_ibfk_6` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`inventory_id`) ON DELETE SET NULL ON UPDATE CASCADE;
+  ADD CONSTRAINT `rental_ibfk_5` FOREIGN KEY (`status_id`) REFERENCES `rental_status` (`status_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `staff`
