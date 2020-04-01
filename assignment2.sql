@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2020 at 02:11 PM
+-- Generation Time: Apr 01, 2020 at 03:11 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -14469,7 +14469,7 @@ CREATE TABLE `payment` (
   `staff_id` int(3) NOT NULL,
   `rental_id` int(10) DEFAULT NULL,
   `amount` decimal(5,2) NOT NULL,
-  `payment_date` datetime NOT NULL,
+  `payment_date` datetime DEFAULT NULL,
   `payment_status` int(1) NOT NULL,
   `last_update` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
