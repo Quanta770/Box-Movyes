@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2020 at 10:47 AM
+-- Generation Time: Apr 04, 2020 at 01:14 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -46693,7 +46693,8 @@ CREATE TABLE `rental_status` (
 INSERT INTO `rental_status` (`status_id`, `status_name`, `last_update`) VALUES
 (1, 'Will be picked up at store', '2020-03-26 07:59:36'),
 (2, 'Will be delivered', '2020-03-26 08:00:17'),
-(3, 'Received by customer', '2020-03-26 08:00:17');
+(3, 'Received by customer', '2020-03-26 08:00:17'),
+(4, 'Cancelled', '2020-04-04 11:12:12');
 
 -- --------------------------------------------------------
 
@@ -46710,7 +46711,6 @@ CREATE TABLE `staff` (
   `email` varchar(50) DEFAULT NULL,
   `store_id` int(3) NOT NULL,
   `active` int(3) NOT NULL DEFAULT 1,
-  `username` varchar(16) NOT NULL,
   `password` varchar(40) DEFAULT NULL,
   `last_update` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -46719,10 +46719,10 @@ CREATE TABLE `staff` (
 -- Dumping data for table `staff`
 --
 
-INSERT INTO `staff` (`staff_id`, `first_name`, `last_name`, `address_id`, `picture`, `email`, `store_id`, `active`, `username`, `password`, `last_update`) VALUES
-(1, 'Mike', 'Hillyer', 3, NULL, 'Mike.Hillyer@sakilastaff.com', 1, 1, 'Mike', '8cb2237d0679ca88db6464eac60da96345513964', '2006-02-14 19:57:16'),
-(2, 'Jon', 'Stephens', 4, NULL, 'Jon.Stephens@sakilastaff.com', 2, 1, 'Jon', '1222344556677889900', '2006-02-14 19:57:16'),
-(3, 'Database', 'Administrator', 504, NULL, 'database.admin@sakilastaff.org', 1, 1, 'Database Admin', '12345isint', '2020-03-21 12:18:13');
+INSERT INTO `staff` (`staff_id`, `first_name`, `last_name`, `address_id`, `picture`, `email`, `store_id`, `active`, `password`, `last_update`) VALUES
+(1, 'Mike', 'Hillyer', 3, NULL, 'Mike.Hillyer@sakilastaff.com', 1, 1, '8cb2237d0679ca88db6464eac60da96345513964', '2006-02-14 19:57:16'),
+(2, 'Jon', 'Stephens', 4, NULL, 'Jon.Stephens@sakilastaff.com', 2, 1, '1222344556677889900', '2006-02-14 19:57:16'),
+(3, 'Database', 'Administrator', 504, NULL, 'database.admin@sakilastaff.org', 1, 1, '12345isint', '2020-03-21 12:18:13');
 
 -- --------------------------------------------------------
 
@@ -46975,7 +46975,7 @@ ALTER TABLE `rental`
 -- AUTO_INCREMENT for table `rental_status`
 --
 ALTER TABLE `rental_status`
-  MODIFY `status_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `status_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `staff`
