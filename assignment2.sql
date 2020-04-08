@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2020 at 01:14 PM
+-- Generation Time: Apr 08, 2020 at 02:42 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -46734,6 +46734,7 @@ CREATE TABLE `store` (
   `store_id` int(3) NOT NULL,
   `manager_staff_id` int(3) NOT NULL,
   `address_id` int(5) NOT NULL,
+  `active` int(1) NOT NULL,
   `last_update` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -46741,9 +46742,9 @@ CREATE TABLE `store` (
 -- Dumping data for table `store`
 --
 
-INSERT INTO `store` (`store_id`, `manager_staff_id`, `address_id`, `last_update`) VALUES
-(1, 1, 1, '2006-02-14 20:57:12'),
-(2, 2, 2, '2006-02-14 20:57:12');
+INSERT INTO `store` (`store_id`, `manager_staff_id`, `address_id`, `active`, `last_update`) VALUES
+(1, 1, 1, 1, '2006-02-14 20:57:12'),
+(2, 2, 2, 1, '2006-02-14 20:57:12');
 
 --
 -- Indexes for dumped tables
