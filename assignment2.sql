@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 08, 2020 at 02:42 PM
+-- Generation Time: Apr 09, 2020 at 04:51 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -46709,7 +46709,7 @@ CREATE TABLE `staff` (
   `address_id` int(5) NOT NULL,
   `picture` blob DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
-  `store_id` int(3) NOT NULL,
+  `store_id` int(3) DEFAULT NULL,
   `active` int(3) NOT NULL DEFAULT 1,
   `password` varchar(40) DEFAULT NULL,
   `last_update` timestamp NOT NULL DEFAULT current_timestamp()
