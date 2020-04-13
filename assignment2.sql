@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2020 at 10:50 AM
+-- Generation Time: Apr 13, 2020 at 11:02 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -14466,7 +14466,7 @@ INSERT INTO `language` (`language_id`, `name`, `last_update`) VALUES
 CREATE TABLE `payment` (
   `payment_id` int(5) NOT NULL,
   `customer_id` int(5) NOT NULL,
-  `staff_id` int(3) NOT NULL,
+  `staff_id` int(3) DEFAULT NULL,
   `rental_id` int(10) DEFAULT NULL,
   `amount` decimal(5,2) NOT NULL,
   `payment_date` datetime DEFAULT NULL,
