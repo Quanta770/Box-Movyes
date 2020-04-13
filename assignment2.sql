@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2020 at 03:56 PM
+-- Generation Time: Apr 13, 2020 at 10:50 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -911,7 +911,7 @@ INSERT INTO `category` (`category_id`, `name`, `last_update`) VALUES
 CREATE TABLE `city` (
   `city_id` int(5) NOT NULL,
   `city` varchar(50) NOT NULL,
-  `country_id` int(5) DEFAULT NULL,
+  `country_id` int(5) NOT NULL,
   `last_update` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -30587,7 +30587,7 @@ CREATE TABLE `rental` (
   `inventory_id` int(7) DEFAULT NULL,
   `customer_id` int(5) NOT NULL,
   `return_date` datetime DEFAULT NULL,
-  `staff_id` int(3) NOT NULL,
+  `staff_id` int(3) DEFAULT NULL,
   `status_id` int(2) NOT NULL,
   `collect_store_id` int(5) DEFAULT NULL,
   `last_update` timestamp NOT NULL DEFAULT current_timestamp()
@@ -47001,10 +47001,10 @@ ALTER TABLE `address`
   ADD CONSTRAINT `address_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `city` (`city_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
--- Constraints for table `city`
+-- Constraints for table `country`
 --
-ALTER TABLE `city`
-  ADD CONSTRAINT `city_ibfk_1` FOREIGN KEY (`country_id`) REFERENCES `country` (`country_id`) ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE `country`
+  ADD CONSTRAINT `country_ibfk_1` FOREIGN KEY (`country_id`) REFERENCES `city` (`country_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `customer`
