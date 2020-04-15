@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 15, 2020 at 02:39 AM
+-- Generation Time: Apr 15, 2020 at 03:07 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -30562,18 +30562,19 @@ INSERT INTO `payment` (`payment_id`, `customer_id`, `staff_id`, `rental_id`, `am
 
 CREATE TABLE `payment_status` (
   `status` int(3) NOT NULL,
-  `status_name` varchar(20) NOT NULL
+  `status_name` varchar(20) NOT NULL,
+  `last_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `payment_status`
 --
 
-INSERT INTO `payment_status` (`status`, `status_name`) VALUES
-(0, 'Not Paid'),
-(1, 'Paid'),
-(2, 'Refund'),
-(3, 'Void');
+INSERT INTO `payment_status` (`status`, `status_name`, `last_update`) VALUES
+(0, 'Not Paid', '2020-04-15 01:06:42'),
+(1, 'Paid', '2020-04-15 01:06:42'),
+(2, 'Refund', '2020-04-15 01:06:42'),
+(3, 'Void', '2020-04-15 01:06:42');
 
 -- --------------------------------------------------------
 
