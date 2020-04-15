@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2020 at 11:02 AM
+-- Generation Time: Apr 15, 2020 at 02:39 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -14470,7 +14470,7 @@ CREATE TABLE `payment` (
   `rental_id` int(10) DEFAULT NULL,
   `amount` decimal(5,2) NOT NULL,
   `payment_date` datetime DEFAULT NULL,
-  `payment_status` int(1) NOT NULL,
+  `payment_status` int(3) NOT NULL,
   `payment_type_id` int(5) DEFAULT NULL,
   `last_update` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -30553,6 +30553,27 @@ INSERT INTO `payment` (`payment_id`, `customer_id`, `staff_id`, `rental_id`, `am
 (16047, 599, 2, 15590, '8.99', '2005-08-23 06:09:00', 1, 1, '2020-04-03 07:29:50'),
 (16048, 599, 2, 15719, '2.99', '2005-08-23 11:08:00', 1, 1, '2020-04-03 07:29:50'),
 (16049, 599, 2, 15725, '2.99', '2005-08-23 11:25:00', 1, 1, '2020-04-03 07:29:50');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payment_status`
+--
+
+CREATE TABLE `payment_status` (
+  `status` int(3) NOT NULL,
+  `status_name` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `payment_status`
+--
+
+INSERT INTO `payment_status` (`status`, `status_name`) VALUES
+(0, 'Not Paid'),
+(1, 'Paid'),
+(2, 'Refund'),
+(3, 'Void');
 
 -- --------------------------------------------------------
 
@@ -46722,7 +46743,8 @@ CREATE TABLE `staff` (
 INSERT INTO `staff` (`staff_id`, `first_name`, `last_name`, `address_id`, `picture`, `email`, `store_id`, `active`, `password`, `last_update`) VALUES
 (1, 'Mike', 'Hillyer', 3, NULL, 'Mike.Hillyer@sakilastaff.com', 1, 1, '8cb2237d0679ca88db6464eac60da96345513964', '2006-02-14 19:57:16'),
 (2, 'Jon', 'Stephens', 4, NULL, 'Jon.Stephens@sakilastaff.com', 2, 1, '1222344556677889900', '2006-02-14 19:57:16'),
-(3, 'Database', 'Administrator', 504, NULL, 'database.admin@sakilastaff.org', 1, 1, '12345isint', '2020-03-21 12:18:13');
+(3, 'Database', 'Administrator', 504, NULL, 'database.admin@sakilastaff.org', 1, 1, '12345isint', '2020-03-21 12:18:13'),
+(4, 'Self', 'Service', NULL, NULL, NULL, NULL, 1, NULL, '2020-04-14 10:27:40');
 
 -- --------------------------------------------------------
 
@@ -46843,7 +46865,14 @@ ALTER TABLE `payment`
   ADD KEY `customer_id` (`customer_id`),
   ADD KEY `staff_id` (`staff_id`),
   ADD KEY `rental_id` (`rental_id`),
-  ADD KEY `payment_type_id` (`payment_type_id`);
+  ADD KEY `payment_type_id` (`payment_type_id`),
+  ADD KEY `payment_status` (`payment_status`);
+
+--
+-- Indexes for table `payment_status`
+--
+ALTER TABLE `payment_status`
+  ADD PRIMARY KEY (`status`) USING BTREE;
 
 --
 -- Indexes for table `payment_type`
@@ -46958,7 +46987,7 @@ ALTER TABLE `language`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `payment_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16050;
+  MODIFY `payment_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16064;
 
 --
 -- AUTO_INCREMENT for table `payment_type`
@@ -46970,7 +46999,7 @@ ALTER TABLE `payment_type`
 -- AUTO_INCREMENT for table `rental`
 --
 ALTER TABLE `rental`
-  MODIFY `rental_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16050;
+  MODIFY `rental_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16060;
 
 --
 -- AUTO_INCREMENT for table `rental_status`
@@ -46982,7 +47011,7 @@ ALTER TABLE `rental_status`
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `staff_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `staff_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `store`
@@ -47049,7 +47078,8 @@ ALTER TABLE `payment`
   ADD CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`staff_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `payment_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `payment_ibfk_3` FOREIGN KEY (`rental_id`) REFERENCES `rental` (`rental_id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  ADD CONSTRAINT `payment_ibfk_4` FOREIGN KEY (`payment_type_id`) REFERENCES `payment_type` (`payment_type_id`) ON DELETE SET NULL ON UPDATE CASCADE;
+  ADD CONSTRAINT `payment_ibfk_4` FOREIGN KEY (`payment_type_id`) REFERENCES `payment_type` (`payment_type_id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `payment_ibfk_5` FOREIGN KEY (`payment_status`) REFERENCES `payment_status` (`status`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `rental`
