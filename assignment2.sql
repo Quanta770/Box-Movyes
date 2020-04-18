@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 15, 2020 at 03:07 AM
+-- Generation Time: Apr 18, 2020 at 05:08 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -30695,7 +30695,7 @@ INSERT INTO `rental` (`rental_id`, `rental_date`, `inventory_id`, `customer_id`,
 (73, '2005-05-25 11:00:00', 517, 391, '2005-06-01 13:56:00', 2, 3, NULL, '2006-02-15 13:30:00'),
 (74, '2005-05-25 11:09:00', 1744, 265, '2005-05-26 12:23:00', 2, 3, NULL, '2006-02-15 13:30:00'),
 (75, '2005-05-25 11:13:00', 3393, 510, '2005-06-03 12:58:00', 1, 3, NULL, '2006-02-15 13:30:00'),
-(76, '2005-05-25 11:30:00', 3021, 1, '2005-06-03 12:00:00', 2, 3, NULL, '2006-02-15 13:30:00'),
+(76, '2005-05-25 11:30:00', 3021, 1, NULL, 2, 3, NULL, '2006-02-15 13:30:00'),
 (77, '2005-05-25 11:31:00', 1303, 451, '2005-05-26 16:53:00', 2, 3, NULL, '2006-02-15 13:30:00'),
 (78, '2005-05-25 11:35:00', 4067, 135, '2005-05-31 12:48:00', 2, 3, NULL, '2006-02-15 13:30:00'),
 (79, '2005-05-25 12:11:00', 3299, 245, '2005-06-03 10:54:00', 2, 3, NULL, '2006-02-15 13:30:00'),
@@ -46988,7 +46988,7 @@ ALTER TABLE `language`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `payment_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16064;
+  MODIFY `payment_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16066;
 
 --
 -- AUTO_INCREMENT for table `payment_type`
@@ -47000,7 +47000,7 @@ ALTER TABLE `payment_type`
 -- AUTO_INCREMENT for table `rental`
 --
 ALTER TABLE `rental`
-  MODIFY `rental_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16060;
+  MODIFY `rental_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16066;
 
 --
 -- AUTO_INCREMENT for table `rental_status`
