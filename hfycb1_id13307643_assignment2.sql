@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 29, 2020 at 05:32 PM
+-- Generation Time: May 01, 2020 at 10:36 AM
 -- Server version: 5.6.47
 -- PHP Version: 7.3.6
 
@@ -267,7 +267,7 @@ INSERT INTO `address` (`address_id`, `address`, `address2`, `district`, `city_id
 (2, '28 MySQL Boulevard', NULL, 'QLD', 576, NULL, NULL, '2014-09-25 14:30:00'),
 (3, '23 Workhaven Lane', NULL, 'Alberta', 300, NULL, '14033335568', '2014-09-25 14:30:00'),
 (4, '1411 Lillydale Drive', NULL, 'QLD', 576, NULL, '6172235589', '2014-09-25 14:30:00'),
-(5, '1913 Hanoi Way', NULL, 'Nagasaki', 463, '35200', '28303384290', '2014-09-25 14:31:00'),
+(5, '1913 Hanoi Way', NULL, 'Nagasaki', 463, '35200', '28303384290', '2020-05-01 02:20:53'),
 (6, '1121 Loja Avenue', NULL, 'California', 449, '17886', '839000000000', '2014-09-25 14:34:00'),
 (7, '692 Joliet Street', NULL, 'Attika', 38, '83579', '448000000000', '2014-09-25 14:31:00'),
 (8, '1566 Inegl Manor', NULL, 'Mandalay', 349, '53561', '706000000000', '2014-09-25 14:32:00'),
@@ -1672,7 +1672,7 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`customer_id`, `store_id`, `first_name`, `last_name`, `email`, `address_id`, `active`, `create_date`, `last_update`, `password`) VALUES
-(1, 1, 'MARY', 'SMITH', 'MARY.SMITH@sakilacustomer.org', 5, 1, '2006-02-14 22:04:00', '2006-02-14 20:57:00', '17001'),
+(1, 1, 'MARY', 'SMITH', 'MARY.SMITH@sakilacustomer.org', 5, 1, '2006-02-14 22:04:00', '2020-05-01 02:20:53', '17001'),
 (2, 1, 'PATRICIA', 'JOHNSON', 'PATRICIA.JOHNSON@sakilacustomer.org', 6, 1, '2006-02-14 22:04:00', '2006-02-14 20:57:00', '40002'),
 (3, 1, 'LINDA', 'WILLIAMS', 'LINDA.WILLIAMS@sakilacustomer.org', 7, 1, '2006-02-14 22:04:00', '2006-02-14 20:57:00', '94003'),
 (4, 2, 'BARBARA', 'JONES', 'BARBARA.JONES@sakilacustomer.org', 8, 1, '2006-02-14 22:04:00', '2006-02-14 20:57:00', '88004'),
@@ -14461,7 +14461,7 @@ CREATE TABLE `language` (
 
 INSERT INTO `language` (`language_id`, `name`, `last_update`) VALUES
 (1, 'English', '2006-02-14 21:02:00'),
-(2, 'Italian', '2006-02-14 21:02:00'),
+(2, 'Italian', '2020-04-30 11:49:39'),
 (3, 'Japanese', '2006-02-14 21:02:00'),
 (4, 'Mandarin', '2006-02-14 21:02:00'),
 (5, 'French', '2006-02-14 21:02:00'),
@@ -14477,7 +14477,7 @@ INSERT INTO `language` (`language_id`, `name`, `last_update`) VALUES
 CREATE TABLE `payment` (
   `payment_id` int(5) NOT NULL,
   `customer_id` int(5) NOT NULL,
-  `staff_id` int(3) NOT NULL,
+  `staff_id` int(3) DEFAULT NULL,
   `rental_id` int(10) DEFAULT NULL,
   `amount` decimal(5,2) NOT NULL,
   `payment_date` datetime DEFAULT NULL,
@@ -14491,7 +14491,7 @@ CREATE TABLE `payment` (
 --
 
 INSERT INTO `payment` (`payment_id`, `customer_id`, `staff_id`, `rental_id`, `amount`, `payment_date`, `payment_status`, `payment_type_id`, `last_update`) VALUES
-(1, 1, 1, 76, 2.99, '2005-05-25 11:30:00', 1, 1, '2020-04-03 07:29:50'),
+(1, 1, 4, 76, 2.99, '2005-05-25 11:30:00', 1, 1, '2020-05-01 02:33:11'),
 (2, 1, 1, 573, 0.99, '2005-05-28 10:35:00', 1, 1, '2020-04-03 07:29:50'),
 (3, 1, 1, 1185, 5.99, '2005-06-15 00:54:00', 1, 1, '2020-04-03 07:29:50'),
 (4, 1, 2, 1422, 0.99, '2005-06-15 18:02:00', 1, 1, '2020-04-03 07:29:50'),
@@ -30621,7 +30621,7 @@ CREATE TABLE `rental` (
   `inventory_id` int(7) DEFAULT NULL,
   `customer_id` int(5) NOT NULL,
   `return_date` datetime DEFAULT NULL,
-  `staff_id` int(3) NOT NULL,
+  `staff_id` int(3) DEFAULT NULL,
   `status_id` int(2) NOT NULL,
   `collect_store_id` int(5) DEFAULT NULL,
   `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -46999,7 +46999,7 @@ ALTER TABLE `language`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `payment_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16072;
+  MODIFY `payment_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16076;
 
 --
 -- AUTO_INCREMENT for table `payment_type`
@@ -47058,8 +47058,8 @@ ALTER TABLE `customer`
 -- Constraints for table `film`
 --
 ALTER TABLE `film`
-  ADD CONSTRAINT `film_ibfk_2` FOREIGN KEY (`original_language_id`) REFERENCES `language` (`language_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `film_ibfk_3` FOREIGN KEY (`language_id`) REFERENCES `language` (`language_id`) ON DELETE SET NULL ON UPDATE CASCADE;
+  ADD CONSTRAINT `film_ibfk_3` FOREIGN KEY (`language_id`) REFERENCES `language` (`language_id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `film_ibfk_4` FOREIGN KEY (`original_language_id`) REFERENCES `language` (`language_id`) ON DELETE CASCADE ON UPDATE SET NULL;
 
 --
 -- Constraints for table `film_actor`
@@ -47081,40 +47081,39 @@ ALTER TABLE `film_category`
 ALTER TABLE `inventory`
   ADD CONSTRAINT `inventory_ibfk_1` FOREIGN KEY (`film_id`) REFERENCES `film` (`film_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `inventory_ibfk_2` FOREIGN KEY (`store_id`) REFERENCES `store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `inventory_ibfk_3` FOREIGN KEY (`inventory_status_id`) REFERENCES `inventory_status` (`inventory_status_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `inventory_ibfk_3` FOREIGN KEY (`inventory_status_id`) REFERENCES `inventory_status` (`inventory_status_id`);
 
 --
 -- Constraints for table `payment`
 --
 ALTER TABLE `payment`
+  ADD CONSTRAINT `payment_ibfk_10` FOREIGN KEY (`payment_status`) REFERENCES `payment_status` (`status`),
   ADD CONSTRAINT `payment_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `payment_ibfk_3` FOREIGN KEY (`rental_id`) REFERENCES `rental` (`rental_id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  ADD CONSTRAINT `payment_ibfk_5` FOREIGN KEY (`payment_status`) REFERENCES `payment_status` (`status`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `payment_ibfk_6` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`staff_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `payment_ibfk_7` FOREIGN KEY (`payment_type_id`) REFERENCES `payment_type` (`payment_type_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `payment_ibfk_8` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`staff_id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `payment_ibfk_9` FOREIGN KEY (`payment_type_id`) REFERENCES `payment_type` (`payment_type_id`);
 
 --
 -- Constraints for table `rental`
 --
 ALTER TABLE `rental`
+  ADD CONSTRAINT `rental_ibfk_10` FOREIGN KEY (`collect_store_id`) REFERENCES `store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `rental_ibfk_4` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `rental_ibfk_5` FOREIGN KEY (`status_id`) REFERENCES `rental_status` (`status_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `rental_ibfk_6` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`inventory_id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  ADD CONSTRAINT `rental_ibfk_7` FOREIGN KEY (`collect_store_id`) REFERENCES `store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `rental_ibfk_8` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`staff_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `rental_ibfk_8` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`staff_id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `rental_ibfk_9` FOREIGN KEY (`status_id`) REFERENCES `rental_status` (`status_id`);
 
 --
 -- Constraints for table `staff`
 --
 ALTER TABLE `staff`
-  ADD CONSTRAINT `staff_ibfk_2` FOREIGN KEY (`store_id`) REFERENCES `store` (`store_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `staff_ibfk_3` FOREIGN KEY (`address_id`) REFERENCES `address` (`address_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `staff_ibfk_3` FOREIGN KEY (`address_id`) REFERENCES `address` (`address_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `staff_ibfk_4` FOREIGN KEY (`store_id`) REFERENCES `store` (`store_id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Constraints for table `store`
 --
 ALTER TABLE `store`
-  ADD CONSTRAINT `store_ibfk_1` FOREIGN KEY (`manager_staff_id`) REFERENCES `staff` (`staff_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `store_ibfk_2` FOREIGN KEY (`address_id`) REFERENCES `address` (`address_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
