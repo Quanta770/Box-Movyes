@@ -1,0 +1,8 @@
+{
+    "require": {
+        "twbs/bootstrap": "^4.4",
+        "components/jquery": "^3.4",
+        "datatables/datatables": "^1.10",
+        "components/modernizr": "^3.5"
+    }
+}
