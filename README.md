@@ -31,5 +31,8 @@ For contributers see this [page](https://hfycb1.mercury.nottingham.edu.my/about.
 ## Customer account page
 ![customer account](https://github.com/Quanta770/Box-Movyes/blob/master/img/capture5.png)
 
+## Staff account page
+![staff page](https://github.com/Quanta770/Box-Movyes/blob/master/img/capture 6.png)
+
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
