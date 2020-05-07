@@ -82,9 +82,6 @@
 		$payment_status = 0;
 		
 		$store_id = $_POST['store_id'];
-		echo("store_id is");
-		echo($store_id);
-		echo("<br />");
 		$sql2 = "INSERT INTO `rental` (`rental_id`, `rental_date`,`inventory_id`,`customer_id`,`return_date`,`staff_id`,`status_id`,`collect_store_id`,`last_update`) VALUES (NULL,current_timestamp(),'$inventory_id','$customer_id',NULL,'4','$status_id','$store_id',current_timestamp());";
 		
 		
@@ -128,7 +125,7 @@
 	else
 	{
 		echo("<script>alert('Error fetching data');</script>");
-		//echo("<script>window.location.href = 'checkout.php';</script>");
+		
 	}
 	
 ?>
