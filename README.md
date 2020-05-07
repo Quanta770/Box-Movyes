@@ -38,4 +38,4 @@ For contributers see this [page](https://hfycb1.mercury.nottingham.edu.my/about.
 ![checkout page](https://github.com/Quanta770/Box-Movyes/blob/master/img/capture7.png)
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/Quanta770/Box-Movyes/LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/Quanta770/Box-Movyes/blob/master/LICENSE) file for details
