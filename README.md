@@ -1,6 +1,5 @@
 # Box-Movies
-A fully functional video renting website based on the SAKILA databse. Written in HTML, CSS, JavaScript, MySQL and PHP and build using [Bootstrap 4](https://getbootstrap.com/) framework and [Datatables](https://datatables.net/) plugin.
-
+A fully functional video renting website based on the SAKILA databse build as an assignent for the Database and Interface course (COMP1031).
 ## Build With
 This website is build with:
 - HTML 5
