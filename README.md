@@ -1,4 +1,4 @@
-# [Box-Movies] (https://hfycb1.mercury.nottingham.edu.my/)
+# [Box-Movies](https://hfycb1.mercury.nottingham.edu.my/)
 A fully functional video renting website based on the SAKILA databse build as an assignent for the Database and Interface course (COMP1031).
 ## Build With
 This website is build with:
