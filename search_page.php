@@ -73,21 +73,18 @@ include 'search.php';
         <!-- nav -->
         <nav>
             <ul class="box-primary-nav">
-                
+
 
                 <li class="box-label"><a href="index.php" style="color: orange;">Home</a></li>
                 <?php
-                    session_start();
-                    if(isset($_SESSION['customer_check']))
-                    {
-                        echo("<li class='box-label'><a href='customer_page.php'>Profile</a></li>");
-                    }
-                    else if(isset($_SESSION['staff_check']))
-                    {
-                        echo("<li class='box-label'><a href='staff_page.php'>Profile</a></li>");
-                    }
-                
-                
+                session_start();
+                if (isset($_SESSION['customer_check'])) {
+                    echo ("<li class='box-label'><a href='customer_page.php'>Profile</a></li>");
+                } else if (isset($_SESSION['staff_check'])) {
+                    echo ("<li class='box-label'><a href='staff_page.php'>Profile</a></li>");
+                }
+
+
                 ?>
                 <li class="box-label"><a href="about.php">About</a></li>
                 <li class="box-label"><a href="search_page.php">Browse</a></li>
@@ -97,27 +94,27 @@ include 'search.php';
                         <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;" tabindex="-1" />
                     </form>
                 </li>
-                              
-                <div class="login-logout">
-                <!-- button changes based on login status -->                
-                <?php 
-                
-                if(isset($_SESSION['email'])){
-                    echo ("<div class=\"btn-group\" role=\"group\" style=\"margin: 1em;\">");
-                    echo ("<a class=\"btn btn-primary btn-lg btn-warning\" style=\"color: black;\" href=\"logout.php\">Log off</a>");
-                    echo ("<a class=\"btn btn-primary btn-lg btn-warning\" style=\"color: black;\" href=\"register.php\">Register</a>" );               
-                    echo ("</div>");
-                }else{ 
-                    echo ("<div class=\"btn-group\" role=\"group\" style=\"margin: 1em;\">");
-                    echo ("<a class=\"btn btn-primary btn-lg btn-warning\" style=\"font-size: 20px; color: black;\" href=\"login.php\" >Log in</a>");
-                    echo ("<a class=\"btn btn-primary btn-lg btn-warning\" style=\"font-size: 20px; color: black;\" href=\"register.php\">Register</a>" );               
-                    echo ("</div>");
-                }
 
-                ?>
+                <div class="login-logout">
+                    <!-- button changes based on login status -->
+                    <?php
+
+                    if (isset($_SESSION['email'])) {
+                        echo ("<div class=\"btn-group\" role=\"group\" style=\"margin: 1em;\">");
+                        echo ("<a class=\"btn btn-primary btn-lg btn-warning\" style=\"color: black;\" href=\"logout.php\">Log off</a>");
+                        echo ("<a class=\"btn btn-primary btn-lg btn-warning\" style=\"color: black;\" href=\"register.php\">Register</a>");
+                        echo ("</div>");
+                    } else {
+                        echo ("<div class=\"btn-group\" role=\"group\" style=\"margin: 1em;\">");
+                        echo ("<a class=\"btn btn-primary btn-lg btn-warning\" style=\"font-size: 20px; color: black;\" href=\"login.php\" >Log in</a>");
+                        echo ("<a class=\"btn btn-primary btn-lg btn-warning\" style=\"font-size: 20px; color: black;\" href=\"register.php\">Register</a>");
+                        echo ("</div>");
+                    }
+
+                    ?>
                 </div>
                 <!--need to link register to register.php -->
-                
+
             </ul>
         </nav>
         <!-- end nav -->
@@ -135,11 +132,11 @@ include 'search.php';
     </div>
     <!-- end main-search -->
     <div class="search-text text-center">
-            <h2>Browse and search movies</h2>
+        <h2>Browse and search movies</h2>
     </div>
     <!--main content/ display search result-->
     <div id="search-table" class="main-container slideanim">
-        
+
         <table class="table js-dynamitable table-bordered table-responsive table-striped" id="search_result">
             <thead>
 
@@ -173,18 +170,7 @@ include 'search.php';
             </tfoot>
 
         </table>
-        <div class="back-btn">
-         <?php
-            if(isset($_SESSION['customer_check']))
-            {
-                echo("<a href=  'customer_page.php'><p class = ' btn btn-primary'>Back to Customer Page</p></a>");
-            }
-            else if(isset($_SESSION['staff_check']))
-            {
-                echo("<a href=  'staff_page.php'><p class = ' btn btn-primary'>Back to Staff Page</p></a>");
-            }
-        ?>
-        </div>
+
         <footer class="bg-w my-5 pt-5 text-muted text-center text-small">
             <ul class="list-inline" style="margin-bottom: 2px;">
                 <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f fa-md"></i></a></li>
@@ -195,9 +181,10 @@ include 'search.php';
             <p class="mb-1">&copy; 2017-2019 Box Movyes</p>
         </footer>
     </div>
-   
+
     <!--end main content-->
     <?php
+
     if (isset($_POST['result'])) {
         $result = $_POST['result'];
         echo ("<p style = 'display:none;'id = 'result'>$result</p>");
@@ -234,9 +221,12 @@ include 'search.php';
     <script src="js/custom.js"></script>
     <script>
         $result = document.getElementById("result").innerHTML;
+        
         /* Formatting function for row details - modify as you need */
         function format(d) {
             // `d` is the original data object for the row
+            
+            
             return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
                 '<tr>' +
                 '<td>' +
@@ -245,7 +235,9 @@ include 'search.php';
                 '<input type = "submit" value = "Rent"></input>' +
                 '</form>' +
                 '</td' +
-                '</tr>' +
+                '<br>' +
+                '<td>' + 'Copies available: ' + d.Stock + '</td>' +
+                '</tr>' + 
                 '</table>';
         }
 
