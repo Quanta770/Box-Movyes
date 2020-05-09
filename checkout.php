@@ -4,7 +4,7 @@
 session_start();
 if (!isset($_SESSION['email'])) //restrict access if not login
 {
-    header('location:/login/login.php');
+    header('location:/login.php');
 } else if (isset($_SESSION['staff_check'])) {
     echo("<script>
         alert('Sorry, only customer can rent movies.');
@@ -68,7 +68,7 @@ if (!isset($_SESSION['email'])) //restrict access if not login
 	
     $email = $_SESSION['email'];
 	
-    $sql = "SELECT inventory.inventory_id, inventory.store_id FROM rental INNER JOIN inventory ON rental.inventory_id = inventory.inventory_id INNER JOIN film ON inventory.film_id = film.film_id WHERE inventory.inventory_id NOT IN (SELECT inventory.inventory_id FROM rental INNER JOIN inventory ON rental.inventory_id = inventory.inventory_id INNER JOIN film ON film.film_id = inventory.film_id WHERE rental.return_date IS NULL AND film.film_id = '$film_id' AND inventory.inventory_status_id = 3)AND film.film_id = '$film_id' AND inventory.inventory_status_id = 3 GROUP BY inventory.inventory_id";
+    $sql = "SELECT inventory.inventory_id, inventory.store_id FROM rental RIGHT JOIN inventory ON rental.inventory_id = inventory.inventory_id INNER JOIN film ON inventory.film_id = film.film_id WHERE inventory.inventory_id NOT IN (SELECT inventory.inventory_id FROM rental INNER JOIN inventory ON rental.inventory_id = inventory.inventory_id INNER JOIN film ON film.film_id = inventory.film_id WHERE rental.return_date IS NULL AND film.film_id = '$film_id' AND inventory.inventory_status_id = 3)AND film.film_id = '$film_id' AND inventory.inventory_status_id = 3 GROUP BY inventory.inventory_id";
     $sql2 = "SELECT customer.first_name, customer.last_name, address.address_id, address.address, address.postal_code, address.district FROM customer JOIN address ON customer.address_id = address.address_id WHERE customer.email LIKE \"$email\"";
     $sql3 = "SELECT film.title, film.rental_duration, film.rental_rate FROM film WHERE film.film_id = $film_id";
 
