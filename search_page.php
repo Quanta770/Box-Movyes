@@ -106,8 +106,8 @@ include 'search.php';
                         echo ("</div>");
                     } else {
                         echo ("<div class=\"btn-group\" role=\"group\" style=\"margin: 1em;\">");
-                        echo ("<a class=\"btn btn-primary btn-lg btn-warning\" style=\"font-size: 20px; color: black;\" href=\"login.php\" >Log in</a>");
-                        echo ("<a class=\"btn btn-primary btn-lg btn-warning\" style=\"font-size: 20px; color: black;\" href=\"register.php\">Register</a>");
+                        echo ("<a class=\"btn btn-primary btn-lg btn-warning\" style=\"color: black;\" href=\"login.php\" >Log in</a>");
+                        echo ("<a class=\"btn btn-primary btn-lg btn-warning\" style=\"color: black;\" href=\"register.php\">Register</a>");
                         echo ("</div>");
                     }
 

@@ -20,7 +20,7 @@
        while($rows = mysqli_fetch_assoc($result)){
            
            $film_id = $rows['film_id'];
-           $sql2 = "SELECT COUNT(B.film_id) AS 'Stock' FROM (SELECT inventory.inventory_id, inventory.film_id, inventory.store_id FROM rental INNER JOIN inventory ON rental.inventory_id = inventory.inventory_id INNER JOIN film ON inventory.film_id = film.film_id WHERE inventory.inventory_id NOT IN (SELECT inventory.inventory_id FROM rental INNER JOIN inventory ON rental.inventory_id = inventory.inventory_id INNER JOIN film ON film.film_id = inventory.film_id WHERE rental.return_date IS NULL AND film.film_id = '$film_id' AND inventory.inventory_status_id = 3)AND film.film_id = '$film_id' AND inventory.inventory_status_id = 3 GROUP BY inventory.inventory_id) AS B ";
+           $sql2 = "SELECT COUNT(B.film_id) AS 'Stock' FROM (SELECT inventory.inventory_id, inventory.film_id, inventory.store_id FROM rental RIGHT JOIN inventory ON rental.inventory_id = inventory.inventory_id INNER JOIN film ON inventory.film_id = film.film_id WHERE inventory.inventory_id NOT IN (SELECT inventory.inventory_id FROM rental INNER JOIN inventory ON rental.inventory_id = inventory.inventory_id INNER JOIN film ON film.film_id = inventory.film_id WHERE rental.return_date IS NULL AND film.film_id = '$film_id' AND inventory.inventory_status_id = 3) AND film.film_id = '$film_id' AND inventory.inventory_status_id = 3 GROUP BY inventory.inventory_id) AS B ";
            $query = mysqli_query($conn, $sql2) or die ("Bad Query: $sql2");
            $row1 = mysqli_fetch_assoc($query);
            $stock_count = $row1['Stock'];
