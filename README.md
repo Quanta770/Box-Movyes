@@ -13,6 +13,18 @@ This website is build with:
 - [Google Fonts](https://fonts.google.com/) - Free fonts family from Google. 
 - [Start Bootstrap](https://startbootstrap.com/) - Good, free Bootstrap code snippets and templates.
 
+## How to Run Project?
+1. Create a new Database table using xampp called "hfycb1_id13307643_assignment2"
+2. Go to folder "Database" from root and find for "database.sql"
+3. Copy content and paste it under "SQL" of XAMPP to create new tables for the database
+4. Create new user, with:
+    - User name as 'hfycb1_hfycb1'
+    - Host name as '%' for wildcard
+    - Password as '12345isint.'
+    - Allow all privileges
+5. Clone the entire project into htdocs of xampp file for localhost to access the file
+6. Go to localhost:8080/Box-Movyes to run the project, and enjoy. (Note: 8080 depends on your port of your localhost)
+
 ## Authors
 For contributers see this [page](https://hfycb1.mercury.nottingham.edu.my/about.php) on the website.
 
