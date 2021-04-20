@@ -25,6 +25,15 @@ This website is build with:
 5. Clone the entire project into htdocs of xampp file for localhost to access the file
 6. Go to localhost:8080/Box-Movyes to run the project, and enjoy. (Note: 8080 depends on your port of your localhost)
 
+## Testing of The Code (Customer)
+1. Email: DEBORAH.WALKER@sakilacustomer.org
+2. Password: 38025
+3. Or alternativelty, you can register for a new customer account
+
+## Testing of The Code (Staff)
+1. Email: Jon.Stephens@sakilastaff.com
+2. Password: 1222344556677889900
+
 ## Authors
 For contributers see this [page](https://hfycb1.mercury.nottingham.edu.my/about.php) on the website.
 
